@@ -101,7 +101,7 @@ function updateUser(id){
     function(request){
           var response =
             request.currentTarget.response || request.target.responseText;
-          var user = JSON.parse(response);
+          var user = JSON.parse(response).data;
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
           card.innerHTML+='<div class="update">\
@@ -287,7 +287,7 @@ function userDetails(id){
           console.log("ok");
           var response =
             request.currentTarget.response || request.target.responseText;
-          var user = JSON.parse(response);
+          var user = JSON.parse(response).data;
           console.log("get result:", user);
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
@@ -332,8 +332,8 @@ function loadUsers(page){
     function(request) {
       var response =
         request.currentTarget.response || request.target.responseText;
-      var user = JSON.parse(response);
-      console.log(JSON.parse(response))
+      var user = JSON.parse(response).data;
+      console.log(JSON.parse(response).data)
       response = JSON.parse(response);
       var currentPage = response.page;
       var totalPages = response.total_pages;
