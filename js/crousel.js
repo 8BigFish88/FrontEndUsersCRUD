@@ -101,7 +101,7 @@ function updateUser(id){
     function(request){
           var response =
             request.currentTarget.response || request.target.responseText;
-          var user = JSON.parse(response).data;
+          var user = JSON.parse(response);
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
           card.innerHTML+='<div class="update">\
@@ -112,20 +112,24 @@ function updateUser(id){
               ')">\
               <div class="form-group">\
                 <label for="email">Email address</label>\
-                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">\
+                <input name="email" type="email" value="' +
+                user.email + '" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">\
                 <small id="emailHelp" class="form-text text-muted">We ll never share your email with anyone else.</small>\
               </div>\
               <div class="form-group">\
                   <label for="name">Name</label>\
-                <input name="name" type="text" class="form-control" id="name" placeholder="Name">\
+                <input name="name" type="text" value="' +
+                user.name + '" class="form-control" id="name" placeholder="Name">\
               </div>\
               <div class="form-group">\
                 <label for="description">Description</label>\
-                <input name="description" type="text" class="form-control" id="description" placeholder="Description">\
+                <input name="description" value="' +
+                user.description + '" type="text" class="form-control" id="description" placeholder="Description">\
               </div>\
               <div class="form-group">\
                 <label for="avatar">Avatar</label>\
-                <input name="avatar" type="text" class="form-control" id="avatar" placeholder="Avatar">\
+                <input name="avatar" type="text" value="' +
+                user.avatar + '" class="form-control" id="avatar" placeholder="Avatar">\
               </div>\
               <button type="submit" class="btn btn-primary">Submit</button>\
               </form>\
@@ -287,8 +291,9 @@ function userDetails(id){
           console.log("ok");
           var response =
             request.currentTarget.response || request.target.responseText;
-          var user = JSON.parse(response).data;
+          var user = JSON.parse(response);
           console.log("get result:", user);
+          console.log(user)
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
           card.innerHTML+='<div class="details">\
