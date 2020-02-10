@@ -21,7 +21,7 @@ Tali variabili occorreranno per:
 */
 
 //const API_URL='https://reqres.in/api/users';
-const API_URL='https://api8bigfiish88.herokuapp.com/api/v1.0/users/';
+const API_URL='https://api8bigfiish88.herokuapp.com/api/v1.0/users';
 var page=1;
 var searchText;
 
@@ -57,7 +57,7 @@ var searchText;
     console.log(data);
   
     put(
-      API_URL+id,
+      API_URL+"/"+id,
       data,
       function(request) {
         console.log("utente modificato", request);
@@ -97,7 +97,7 @@ function closeUpdate(id){
   un semplice console.log.*/
 function updateUser(id){
   get(
-    API_URL+id,
+    API_URL+"/"+id,
     function(request){
           var response =
             request.currentTarget.response || request.target.responseText;
@@ -237,7 +237,7 @@ function userSave() {
 
 function deleteUser(id){
   remove(
-    API_URL+id,
+    API_URL+"/"+id,
     function(){
       var card = document.getElementById("user_"+id);
       card.remove();
@@ -286,7 +286,7 @@ function closeDetails(id){
   un semplice console.log.*/
 function userDetails(id){
   get(
-    API_URL+id,
+    API_URL+"/"+id,
     function(request){
           console.log("ok");
           var response =
@@ -338,7 +338,7 @@ function loadUsers(page){
       var response =
         request.currentTarget.response || request.target.responseText;
       var user = JSON.parse(response).data;
-      console.log(JSON.parse(response).data)
+      console.log(JSON.parse(response))
       response = JSON.parse(response);
       var currentPage = response.page;
       var totalPages = response.total_pages;
