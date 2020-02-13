@@ -105,8 +105,8 @@ function updateUser(id){
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
           card.innerHTML+='<div class="update">\
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">\
-              <image x="0" y="0" width="140" height="140" style="display: block; width: 100%; height: 100%; object-fit: cover;" xlink:href="'+user.avatar+'"/></svg>\
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140" style="background: url('+user.avatar+') center; background-size: cover;">\
+              </svg>\
               <form id="form" onsubmit="userPut(event,' +
               id +
               ')">\
@@ -297,8 +297,8 @@ function userDetails(id){
           var card = document.getElementById("user_"+id);
           card.getElementsByClassName("intro")[0].style.display="none";
           card.innerHTML+='<div class="details">\
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">\
-              <image x="0" y="0" width="140" height="140" style="display: block; width: 100%; height: 100%; object-fit: cover;" xlink:href="'+user.avatar+'"/></svg>\
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140" style="background: url('+user.avatar+') center; background-size: cover;">\
+              </svg>\
               <h2>'+user.name+'</h2>\
               <p class="description">'+user.description+'</p>\
               <p><a onclick="closeDetails('+id+')" class="btn btn-primary col-lg-4 col-xs-4 col-md-4 col-sm-4" href="javascript:void(0)" role="button"><i class="fa fa-window-close-o" aria-hidden="true"></i></a>\
